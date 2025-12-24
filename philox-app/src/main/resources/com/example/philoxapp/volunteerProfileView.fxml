@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="rootPane" alignment="TOP_CENTER" spacing="20"
+      style="-fx-background-color: white; -fx-background-radius: 12; -fx-border-color: #e0e0e0; -fx-border-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 20, 0.2, 0, 3);"
+      xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.philoxapp.component.modal.VolunteerProfileViewModal">
+    <padding>
+        <Insets top="20" right="30" bottom="30" left="30"/>
+    </padding>
+
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label text="Volunteer Profile" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #274C56;"/>
+        <Region HBox.hgrow="ALWAYS" />
+        <Button fx:id="closeButton" onAction="#handleClose" text="×" style="-fx-background-color: transparent; -fx-font-size: 20px; -fx-text-fill: #777; -fx-font-weight: bold; -fx-cursor: hand;"/>
+    </HBox>
+
+    <Label text="View information about this volunteer application." style="-fx-font-size: 13px; -fx-text-fill: #777; -fx-padding: 0 0 5 0;"/>
+
+    <VBox spacing="5" alignment="CENTER">
+        <Label fx:id="nameLabel" text="Sarah Ahmed" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+        <Label fx:id="opportunityLabel" text="Applied for: Community Clean-up Drive" style="-fx-font-size: 14px; -fx-text-fill: #555;" wrapText="true" maxWidth="350"/>
+    </VBox>
+
+    <Separator />
+
+    <GridPane hgap="40" vgap="15">
+        <columnConstraints>
+            <ColumnConstraints percentWidth="50" />
+            <ColumnConstraints percentWidth="50" />
+        </columnConstraints>
+
+        <VBox spacing="5" GridPane.rowIndex="0" GridPane.columnIndex="0">
+            <Label text="Email" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+            <Label fx:id="emailLabel" text="sarah.ahmed@gmail.com" style="-fx-font-size: 14px; -fx-text-fill: #333;"/>
+        </VBox>
+        <VBox spacing="5" GridPane.rowIndex="0" GridPane.columnIndex="1">
+            <Label text="Phone" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+            <Label fx:id="phoneLabel" text="+92 300 1234567" style="-fx-font-size: 14px; -fx-text-fill: #333;"/>
+        </VBox>
+        <VBox spacing="5" GridPane.rowIndex="1" GridPane.columnIndex="0">
+            <Label text="City" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+            <Label fx:id="cityLabel" text="Islamabad, PK" style="-fx-font-size: 14px; -fx-text-fill: #333;"/>
+        </VBox>
+        <VBox spacing="5" GridPane.rowIndex="1" GridPane.columnIndex="1">
+            <Label text="Applied Date" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+            <Label fx:id="appliedDateLabel" text="2025-11-08" style="-fx-font-size: 14px; -fx-text-fill: #333;"/>
+        </VBox>
+    </GridPane>
+
+    <VBox spacing="5">
+        <Label text="Skills" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+        <Label fx:id="skillsLabel" text="Environmental Awareness, Team Coordination" style="-fx-font-size: 14px; -fx-text-fill: #333;" wrapText="true"/>
+    </VBox>
+
+    <VBox spacing="5">
+        <Label text="Application Message" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+        <TextArea fx:id="applicationMessageArea" editable="false" wrapText="true" prefHeight="100"
+                  style="-fx-background-color: #f4f7f6; -fx-border-color: #ddd; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-size: 14px; -fx-padding: 8 10;"/>
+    </VBox>
+
+    <HBox alignment="CENTER_RIGHT" style="-fx-padding: 5 0 0 0;">
+        <Hyperlink text="View Complete Profile" onAction="#handleViewCompleteProfile" />
+    </HBox>
+
+    <Separator />
+
+    <StackPane>
+        <HBox fx:id="acceptRejectBox" spacing="15" alignment="CENTER_LEFT">
+            <Button fx:id="acceptButton" onAction="#handleAccept" text="Accept Application"
+                    style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14px; -fx-padding: 12 25; -fx-cursor: hand;"/>
+            <Button fx:id="rejectButton" onAction="#handleReject" text="Reject Application"
+                    style="-fx-background-color: #D32F2F; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14px; -fx-padding: 12 25; -fx-cursor: hand;"/>
+        </HBox>
+
+        <HBox fx:id="rateBox" spacing="15" alignment="CENTER_LEFT" visible="false" managed="false">
+            <Button fx:id="rateButton" onAction="#handleOpenRatingPopup" text="★ Rate Volunteer"
+                    style="-fx-background-color: #F59E0B; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14px; -fx-padding: 12 25; -fx-cursor: hand;"/>
+        </HBox>
+    </StackPane>
+
+</VBox>

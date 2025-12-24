@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+        <?import javafx.geometry.Insets?>
+        <?import javafx.scene.control.*?>
+        <?import javafx.scene.image.Image?>
+        <?import javafx.scene.image.ImageView?>
+        <?import javafx.scene.layout.*?>
+        <?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.philoxapp.dashboard.VolunteerDashboardController"
+            style="-fx-background-color: linear-gradient(to bottom right, #f7f9fc, #e6ebf5);">
+
+    <!-- SIDEBAR -->
+    <left>
+        <VBox fx:id="sidebarContainer" alignment="TOP_LEFT" prefWidth="250" spacing="15"
+              style="-fx-background-color: #FFFFFF; -fx-border-width: 0 1 0 0; -fx-border-color: #e0e0e0;">
+            <!-- SidePanel will be added here dynamically -->
+        </VBox>
+    </left>
+
+
+    <center>
+        <VBox spacing="24" alignment="TOP_CENTER" style="-fx-padding: 56 24 24 24;" prefWidth="900">
+
+            <!-- Top greeting card -->
+            <StackPane prefWidth="850" prefHeight="150" style="-fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 6,0,0,2);">
+
+                <Region style="-fx-background-color: linear-gradient(to bottom right, #F0FDFA 5%, #F0FDF4 50%, #FEFCE8 100%); -fx-background-radius: 12;"
+                        pickOnBounds="false" prefWidth="820" prefHeight="140"/>
+                <VBox spacing="8" alignment="TOP_LEFT" prefWidth="820" style="-fx-padding: 20 32 16 32;">
+                    <!-- in `volunteerDashboard.fxml` — replace the hardcoded welcome Label -->
+                    <Label fx:id="welcomeLabel" text="Welcome back, Imama" style="-fx-font-size: 22px; -fx-text-fill: #274C56;" />
+                    <Label text="We're glad to have you here. Let's continue making an impact together."
+                           wrapText="true" style="-fx-font-size: 14px; -fx-text-fill: #4A5565;" />
+                    <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 12 0 0 0;">
+                        <Label text="✅" style="-fx-font-size: 16px; -fx-text-fill: #009966;" />
+                        <Label text="You're all set! Explore opportunities whenever you're ready."
+                               style="-fx-font-size: 13px; -fx-text-fill: #009966; -fx-background-radius: 12; -fx-padding: 3 9;" />
+                    </HBox>
+                </VBox>
+            </StackPane>
+
+            <!-- Three stat cards -->
+            <HBox spacing="28" alignment="CENTER" prefWidth="820">
+                <VBox.margin>
+                    <Insets top="30" right="0" bottom="30" left="0"/>
+                </VBox.margin>
+
+                <!-- Total Applications -->
+                <VBox spacing="14" alignment="CENTER" prefWidth="320" prefHeight="200"
+                      style="-fx-background-color: linear-gradient(to bottom, #274C56, #3A6570); -fx-background-radius: 16; -fx-padding: 24;">
+                    <ImageView fx:id="totalApplicationsImage" fitHeight="60" fitWidth="60" preserveRatio="true" />
+                    <Label text="Total Applications"
+                           style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: white;" />
+                    <Label fx:id="totalCountLabel" text="0"
+                           style="-fx-font-size: 20px; -fx-text-fill: white;" />
+                </VBox>
+
+                <!-- Completed -->
+                <VBox spacing="14" alignment="CENTER" prefWidth="320" prefHeight="200"
+                      style="-fx-background-color: linear-gradient(to bottom, #61A04D, #4F8A3E); -fx-background-radius: 16; -fx-padding: 24;">
+                    <ImageView fx:id="completedImage" fitHeight="60" fitWidth="60" preserveRatio="true" />
+                    <Label text="Completed"
+                           style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: white;" />
+                    <Label fx:id="completedCountLabel" text="0"
+                           style="-fx-font-size: 20px; -fx-text-fill: white;" />
+                </VBox>
+
+                <!-- Pending -->
+                <VBox spacing="14" alignment="CENTER" prefWidth="320" prefHeight="200"
+                      style="-fx-background-color: linear-gradient(to bottom, #FFE393, #FFD55B); -fx-background-radius: 16; -fx-padding: 24;">
+                    <ImageView fx:id="pendingImage" fitHeight="60" fitWidth="60" preserveRatio="true" />
+                    <Label text="Pending"
+                           style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #4A5565;" />
+                    <Label fx:id="pendingCountLabel" text="0"
+                           style="-fx-font-size: 20px; -fx-text-fill: #4A5565;" />
+                </VBox>
+            </HBox>
+
+            <!-- Carousel -->
+            <StackPane fx:id="carouselClip" prefWidth="1200" prefHeight="140" style="-fx-padding: 8; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 6,0,0,2);">
+                <HBox fx:id="carouselTrack" spacing="0" managed="false">
+
+                    <!-- Slide 1 (width set to 850 to match top card) -->
+                    <StackPane prefWidth="1200" prefHeight="140" style="-fx-background-radius: 12; -fx-padding: 8; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 6,0,0,2);">
+                        <Region style="-fx-background-color: linear-gradient(to right, rgba(0,212,146,0.2) 0%, rgba(0,213,190,0.2) 50%, rgba(0,211,242,0.2) 100%); -fx-background-radius: 12;" pickOnBounds="false" prefWidth="1200" prefHeight="140"/>
+                        <HBox spacing="14" alignment="CENTER_LEFT" style="-fx-padding: 0 24;">
+                            <StackPane prefWidth="56" prefHeight="56" minWidth="56" minHeight="56" maxWidth="56" maxHeight="56"
+                                       style="-fx-background-color: rgba(255,255,255,0.7); -fx-background-radius: 12; -fx-alignment: center;">
+                                <Label text="🍃" style="-fx-font-size: 22px;"/>
+                            </StackPane>
+                            <Label text="Your dedication is changing lives. Thank you for your commitment!" wrapText="true" style="-fx-font-size: 14px; -fx-text-fill: #274C56;"/>
+                        </HBox>
+                    </StackPane>
+
+                    <!-- Slide 2 -->
+                    <StackPane prefWidth="1200" prefHeight="140" style="-fx-background-radius: 12; -fx-padding: 8; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 6,0,0,2);">
+                        <Region style="-fx-background-color: linear-gradient(to right, rgba(255,185,0,0.2) 0%, rgba(253,199,0,0.2) 50%, rgba(154,230,0,0.2) 100%); -fx-background-radius: 12;" pickOnBounds="false" prefWidth="1200" prefHeight="140"/>
+                        <HBox spacing="14" alignment="CENTER_LEFT" style="-fx-padding: 0 24;">
+                            <StackPane prefWidth="56" prefHeight="56" minWidth="56" minHeight="56" maxWidth="56" maxHeight="56"
+                                       style="-fx-background-color: rgba(255,255,255,0.7); -fx-background-radius: 12; -fx-alignment: center;">
+                                <Label text="⭐" style="-fx-font-size: 22px;"/>
+                            </StackPane>
+                            <Label text="Together, we make communities stronger." wrapText="true" style="-fx-font-size: 14px; -fx-text-fill: #274C56;"/>
+                        </HBox>
+                    </StackPane>
+
+                    <!-- Slide 3 -->
+                    <StackPane prefWidth="1200" prefHeight="140" style="-fx-background-radius: 12; -fx-padding: 8; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 6,0,0,2);">
+                        <Region style="-fx-background-color: linear-gradient(to right, rgba(194,122,255,0.2) 0%, rgba(124,134,255,0.2) 50%, rgba(81,162,255,0.2) 100%); -fx-background-radius: 12;" pickOnBounds="false" prefWidth="1200" prefHeight="140"/>
+                        <HBox spacing="14" alignment="CENTER_LEFT" style="-fx-padding: 0 24;">
+                            <StackPane prefWidth="56" prefHeight="56" minWidth="56" minHeight="56" maxWidth="56" maxHeight="56"
+                                       style="-fx-background-color: rgba(255,255,255,0.7); -fx-background-radius: 12; -fx-alignment: center;">
+                                <Label text="✨" style="-fx-font-size: 22px;"/>
+                            </StackPane>
+                            <Label text="Small actions create big change. Keep going!" wrapText="true" style="-fx-font-size: 14px; -fx-text-fill: #274C56;"/>
+                        </HBox>
+                    </StackPane>
+
+                </HBox>
+
+                <!-- indicators  -->
+                <HBox fx:id="indicatorsBox"
+                      alignment="CENTER"
+                      spacing="8"
+                      StackPane.alignment="BOTTOM_CENTER"
+                      style="-fx-padding: 0 0 12 0;"
+                      prefHeight="0"
+                      minHeight="0"
+                      maxHeight="0"
+                      visible="false"
+                      managed="false" />
+
+            </StackPane>
+
+        </VBox>
+    </center>
+</BorderPane>

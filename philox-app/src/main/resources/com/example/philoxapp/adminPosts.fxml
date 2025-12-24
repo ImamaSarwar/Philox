@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="900.0" prefWidth="1400.0" style="-fx-background-color: #f7f9fc;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.philoxapp.adminScreens.AdminPostsController">
+
+    <left>
+        <VBox fx:id="sidebarContainer" alignment="TOP_LEFT" prefWidth="250" spacing="15" style="-fx-background-color: #FFFFFF; -fx-border-width: 0 1 0 0; -fx-border-color: #e0e0e0;">
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="20">
+            <padding>
+                <Insets bottom="30" left="40" right="40" top="40" />
+            </padding>
+
+            <VBox spacing="5">
+                <Label style="-fx-font-size: 28px; -fx-text-fill: #1F2937;" text="All Active Posts" />
+                <Label style="-fx-font-size: 14px; -fx-text-fill: #6b7280;" text="View and manage opportunities posted by all organizations." />
+            </VBox>
+
+            <ScrollPane fx:id="mainScrollPane" fitToWidth="true" hbarPolicy="NEVER" style="-fx-background-color: transparent; -fx-background: transparent;" VBox.vgrow="ALWAYS">
+                <TilePane fx:id="cardsContainer" hgap="20" prefColumns="3" vgap="20">
+                    <padding>
+                        <Insets bottom="10" left="5" right="5" top="10" />
+                    </padding>
+                </TilePane>
+            </ScrollPane>
+
+        </VBox>
+    </center>
+</BorderPane>

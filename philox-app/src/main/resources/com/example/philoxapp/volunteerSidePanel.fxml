@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.philoxapp.VolunteerSidePanelController"
+      spacing="20" alignment="TOP_LEFT"
+      style="-fx-background-color: white; -fx-padding: 30; -fx-pref-width: 250;">
+
+    <!-- TOP LOGO SECTION -->
+    <VBox spacing="5" alignment="TOP_LEFT">
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <ImageView fx:id="logoImage" fitHeight="30" fitWidth="30" />
+            <VBox>
+                <Label text="Philox" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #274C56;" />
+                <Label text="Volunteer Portal" style="-fx-font-size: 12px; -fx-text-fill: #888;" />
+            </VBox>
+        </HBox>
+        <VBox style="-fx-padding: 10 0 0 0;">
+            <Region prefHeight="1" maxWidth="200"
+                    style="-fx-background-color: #DEDEDE;" />
+        </VBox>
+    </VBox>
+
+    <!-- NAVIGATION BUTTONS -->
+    <VBox spacing="10" style="-fx-padding: 10 0;">
+        <!-- Dashboard -->
+        <HBox fx:id="dashboardBox" spacing="10" alignment="CENTER_LEFT"
+              style="-fx-background-color: transparent; -fx-padding: 10 15; -fx-background-radius: 8;"
+              onMouseClicked="#handleDashboardClick">
+            <ImageView fx:id="dashboardIcon" fitHeight="20" fitWidth="20" />
+            <Label text="Dashboard" fx:id="dashboardLabel"
+                   style="-fx-font-size: 14px; -fx-text-fill: #274C56;" />
+        </HBox>
+
+        <!-- Opportunities -->
+        <HBox fx:id="opportunitiesBox" spacing="10" alignment="CENTER_LEFT"
+              style="-fx-background-color: transparent; -fx-padding: 10 15; -fx-background-radius: 8;"
+              onMouseClicked="#handleOpportunitiesClick">
+            <ImageView fx:id="opportunitiesIcon" fitHeight="20" fitWidth="20" />
+            <Label text="Opportunities" fx:id="opportunitiesLabel"
+                   style="-fx-font-size: 14px; -fx-text-fill: #274C56;" />
+        </HBox>
+
+        <!-- My Applications -->
+        <HBox fx:id="applicationsBox" spacing="10" alignment="CENTER_LEFT"
+              style="-fx-background-color: transparent; -fx-padding: 10 15; -fx-background-radius: 8;"
+              onMouseClicked="#handleApplicationsClick">
+            <ImageView fx:id="applicationsIcon" fitHeight="20" fitWidth="20" />
+            <Label text="My Applications" fx:id="applicationsLabel"
+                   style="-fx-font-size: 14px; -fx-text-fill: #274C56;" />
+        </HBox>
+
+        <!-- Profile (Selected Example) -->
+        <HBox fx:id="profileBox" spacing="10" alignment="CENTER_LEFT"
+              style="-fx-background-color: #F0FDFA; -fx-padding: 10 15; -fx-background-radius: 8;"
+              onMouseClicked="#handleProfileClick">
+            <ImageView fx:id="profileIcon" fitHeight="20" fitWidth="20"
+                       style="-fx-image: url('/assets/profile-green.png');" />
+            <Label text="Profile" fx:id="profileLabel"
+                   style="-fx-font-size: 14px; -fx-text-fill: #00786F; -fx-font-weight: bold;" />
+        </HBox>
+
+        <!-- Settings -->
+        <HBox fx:id="settingsBox" spacing="10" alignment="CENTER_LEFT"
+              style="-fx-background-color: transparent; -fx-padding: 10 15; -fx-background-radius: 8;"
+              onMouseClicked="#handleSettingsClick">
+            <ImageView fx:id="settingsIcon" fitHeight="20" fitWidth="20" />
+            <Label text="Settings" fx:id="settingsLabel"
+                   style="-fx-font-size: 14px; -fx-text-fill: #274C56;" />
+        </HBox>
+    </VBox>
+
+    <Region VBox.vgrow="ALWAYS"/>
+
+    <!-- BOTTOM USER INFO -->
+    <VBox spacing="10">
+        <Region prefHeight="1" maxWidth="200"
+                style="-fx-background-color: #DEDEDE;" />
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <StackPane prefWidth="36" prefHeight="36"
+                       style="-fx-background-color: #009689; -fx-background-radius: 18;">
+                <Label fx:id="initialsLabel" text="SA"
+                       style="-fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold;" />
+            </StackPane>
+            <VBox>
+                <Label fx:id="userNameLabel" text="Sarah Arslan"
+                       style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #274C56;" />
+                <Label text="Volunteer" style="-fx-font-size: 12px; -fx-text-fill: #666;" />
+            </VBox>
+        </HBox>
+        <HBox spacing="10" alignment="CENTER_LEFT" onMouseClicked="#handleLogoutClick"
+              style="-fx-background-color: transparent; -fx-padding: 8 0;">
+            <ImageView fx:id="logoutIcon" fitHeight="18" fitWidth="18"
+                       style="-fx-image: url('/assets/logout.png');" />
+            <Label text="Logout"
+                   style="-fx-font-size: 13px; -fx-text-fill: #4A5565; -fx-cursor: hand;" />
+        </HBox>
+    </VBox>
+</VBox>

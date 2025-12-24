@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+
+<BorderPane prefHeight="900.0" prefWidth="1400.0" style="-fx-background-color: #f7f9fc;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.philoxapp.dashboard.OrganisationDashboardController">
+
+    <left>
+        <VBox fx:id="sidebarContainer" alignment="TOP_LEFT" prefWidth="250" spacing="15" style="-fx-background-color: #FFFFFF; -fx-border-width: 0 1 0 0; -fx-border-color: #e0e0e0;">
+        </VBox>
+    </left>
+
+    <center>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" style="-fx-background-color: transparent; -fx-background: transparent;">
+            <VBox spacing="30">
+                <padding>
+                    <Insets bottom="40" left="50" right="50" top="40" />
+                </padding>
+
+                <VBox spacing="10" style="-fx-background-color: #F0FDF4; -fx-background-radius: 12; -fx-padding: 30; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.03), 5, 0, 0, 2); -fx-border-color: #DCFCE7; -fx-border-radius: 12;">
+                    <Label fx:id="welcomeLabel" style="-fx-font-size: 26px; -fx-text-fill: #1F2937;" text="Welcome back!" />
+                    <Label style="-fx-font-size: 15px; -fx-text-fill: #4B5563;" text="Track your organization's performance and volunteer engagement." />
+
+                    <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-padding: 10 0 0 0;">
+                        <Label style="-fx-text-fill: #009689; -fx-font-weight: bold; -fx-font-size: 16px;" text="✓" />
+                        <Label style="-fx-font-size: 14px; -fx-text-fill: #009689; -fx-font-weight: bold;" text="You're all set! Post a new opportunity to reach more volunteers today." />
+                    </HBox>
+                </VBox>
+
+                <GridPane hgap="30" vgap="30">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="ALWAYS" percentWidth="50" />
+                        <ColumnConstraints hgrow="ALWAYS" percentWidth="50" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="250" vgrow="ALWAYS" />
+                        <RowConstraints minHeight="250" vgrow="ALWAYS" />
+                    </rowConstraints>
+
+                    <VBox spacing="20" style="-fx-background-color: white; -fx-background-radius: 16; -fx-padding: 30; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 15, 0.1, 0, 3);" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <HBox alignment="CENTER_LEFT" spacing="15">
+                            <StackPane style="-fx-background-color: #E0F2F1; -fx-padding: 12; -fx-background-radius: 12;">
+                                <ImageView fitHeight="32" fitWidth="32" preserveRatio="true">
+                                    <Image url="@../../../assets/opportunitiesIcon.png" />
+                                </ImageView>
+                            </StackPane>
+                            <Label alignment="CENTER_LEFT" minHeight="40" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #4A5565;" text="Open Opportunities" wrapText="true" />
+                        </HBox>
+
+                        <VBox spacing="5">
+                            <Label fx:id="openOppsLabel" style="-fx-font-size: 48px; -fx-font-weight: bold; -fx-text-fill: #274C56;" text="0" />
+                            <Label style="-fx-font-size: 14px; -fx-text-fill: #6b7280;" text="Active listings currently visible to volunteers." wrapText="true" />
+                        </VBox>
+                        <Region VBox.vgrow="ALWAYS" />
+                    </VBox>
+
+                    <VBox spacing="20" style="-fx-background-color: white; -fx-background-radius: 16; -fx-padding: 30; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 15, 0.1, 0, 3);" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                        <HBox alignment="CENTER_LEFT" spacing="15">
+                            <StackPane style="-fx-background-color: #FFF8E1; -fx-padding: 12; -fx-background-radius: 12;">
+                                <ImageView fitHeight="32" fitWidth="32" preserveRatio="true">
+                                    <Image url="@../../../assets/applicationsIcon.png" />
+                                </ImageView>
+                            </StackPane>
+                            <Label alignment="CENTER_LEFT" minHeight="40" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #4A5565;" text="Pending Review" wrapText="true" />
+                        </HBox>
+
+                        <VBox spacing="5">
+                            <Label fx:id="toReviewLabel" style="-fx-font-size: 48px; -fx-font-weight: bold; -fx-text-fill: #FFA000;" text="0" />
+                            <Label style="-fx-font-size: 14px; -fx-text-fill: #6b7280;" text="Applications waiting for your decision." wrapText="true" />
+                        </VBox>
+                        <Region VBox.vgrow="ALWAYS" />
+                    </VBox>
+
+                    <VBox spacing="20" style="-fx-background-color: white; -fx-background-radius: 16; -fx-padding: 30; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 15, 0.1, 0, 3);" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                        <HBox alignment="CENTER_LEFT" spacing="15">
+                            <StackPane style="-fx-background-color: #F3E5F5; -fx-padding: 12; -fx-background-radius: 12;">
+                                <ImageView fitHeight="32" fitWidth="32" preserveRatio="true">
+                                    <Image url="@../../../assets/icons/post_icon.png" />
+                                </ImageView>
+                            </StackPane>
+                            <Label alignment="CENTER_LEFT" minHeight="40" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #4A5565;" text="Total Posted" wrapText="true" />
+                        </HBox>
+
+                        <VBox spacing="5">
+                            <Label fx:id="totalPostedLabel" style="-fx-font-size: 48px; -fx-font-weight: bold; -fx-text-fill: #274C56;" text="0" />
+                            <Label style="-fx-font-size: 14px; -fx-text-fill: #6b7280;" text="Opportunities created since joining." wrapText="true" />
+                        </VBox>
+                        <Region VBox.vgrow="ALWAYS" />
+                    </VBox>
+
+                    <VBox spacing="20" style="-fx-background-color: white; -fx-background-radius: 16; -fx-padding: 30; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 15, 0.1, 0, 3);" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <HBox alignment="CENTER_LEFT" spacing="15">
+                            <StackPane style="-fx-background-color: #E3F2FD; -fx-padding: 12; -fx-background-radius: 12;">
+                                <ImageView fitHeight="32" fitWidth="32" preserveRatio="true">
+                                    <Image url="@../../../assets/icons/users_icon.png" />
+                                </ImageView>
+                            </StackPane>
+                            <Label alignment="CENTER_LEFT" minHeight="40" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #4A5565;" text="Volunteers Engaged" wrapText="true" />
+                        </HBox>
+
+                        <VBox spacing="5">
+                            <Label fx:id="volunteersEngagedLabel" style="-fx-font-size: 48px; -fx-font-weight: bold; -fx-text-fill: #274C56;" text="0" />
+                            <Label style="-fx-font-size: 14px; -fx-text-fill: #6b7280;" text="Total unique volunteers who participated." wrapText="true" />
+                        </VBox>
+                        <Region VBox.vgrow="ALWAYS" />
+                    </VBox>
+
+                </GridPane>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

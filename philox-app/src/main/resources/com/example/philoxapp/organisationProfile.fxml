@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+
+<?import javafx.scene.layout.FlowPane?>
+<BorderPane prefHeight="900.0" prefWidth="1400.0" style="-fx-background-color: #f7f9fc;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.philoxapp.organisationScreens.OrganisationProfileController">
+
+    <left>
+        <VBox fx:id="sidebarContainer" alignment="TOP_LEFT" prefWidth="250" spacing="15" style="-fx-background-color: #FFFFFF; -fx-border-width: 0 1 0 0; -fx-border-color: #e0e0e0;">
+        </VBox>
+    </left>
+
+    <center>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" style="-fx-background-color: transparent; -fx-background: transparent;">
+            <VBox alignment="TOP_CENTER" spacing="25">
+                <padding>
+                    <Insets bottom="30" left="40" right="40" top="30" />
+                </padding>
+
+                <HBox alignment="CENTER_LEFT" maxWidth="1000">
+                    <VBox spacing="5">
+                        <Label fx:id="mainTitleLabel" style="-fx-font-size: 26px; -fx-text-fill: #274C56;" text="Organisation Profile" />
+                        <Label fx:id="mainSubtitleLabel" style="-fx-font-size: 14px; -fx-text-fill: #666;" text="Manage your organization's public information and documents." />
+                    </VBox>
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Button fx:id="editProfileButton" onAction="#handleEditProfile" style="-fx-background-color: #009689; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 10 20; -fx-cursor: hand;" text="Edit Profile">
+                        <graphic>
+                            <ImageView fitHeight="16" fitWidth="16" preserveRatio="true">
+                                <Image url="@../../../assets/icons/edit_icon.png" />
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                </HBox>
+
+                <VBox maxWidth="1000" spacing="25" style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 40; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 15, 0.1, 0, 3);">
+
+                    <HBox alignment="CENTER_LEFT" spacing="25">
+                        <StackPane prefHeight="90" prefWidth="90" style="-fx-background-color: #009689; -fx-background-radius: 16;">
+                            <ImageView fitHeight="45" fitWidth="45" preserveRatio="true">
+                                <Image url="@../../../assets/orgLabelIcon.png" />
+                            </ImageView>
+                        </StackPane>
+
+                        <VBox alignment="CENTER_LEFT" spacing="5">
+                            <TextField fx:id="orgNameField" editable="false" focusTraversable="false" style="-fx-background-color: transparent; -fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #274C56; -fx-padding: 0;" text="Green Earth Foundation" />
+                            <Label style="-fx-background-color: #e0f2f1; -fx-text-fill: #00796b; -fx-font-size: 12px; -fx-padding: 4 10; -fx-background-radius: 6;" text="Verified Organisation" />
+                        </VBox>
+
+                        <Region HBox.hgrow="ALWAYS" />
+                    </HBox>
+
+                    <Separator />
+
+                    <VBox spacing="8">
+                        <Label style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #333;" text="Mission Statement" />
+                        <TextField fx:id="missionArea" editable="false" style="-fx-background-color: transparent; -fx-padding: 0; -fx-font-size: 14px; -fx-text-fill: #555;" text="Dedicated to environmental conservation..." />
+                    </VBox>
+
+                    <Separator />
+
+                    <GridPane hgap="50" vgap="20">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="50" />
+                            <ColumnConstraints percentWidth="50" />
+                        </columnConstraints>
+
+                        <VBox spacing="15" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                            <Label style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #333;" text="Contact Information" />
+
+                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                <ImageView fitHeight="18" fitWidth="18" opacity="0.6" preserveRatio="true">
+                                    <Image url="@../../../assets/email.png" />
+                                </ImageView>
+                                <VBox HBox.hgrow="ALWAYS">
+                                    <Label style="-fx-text-fill: #777; -fx-font-size: 11px;" text="Email" />
+                                    <TextField fx:id="emailField" editable="false" style="-fx-background-color: transparent; -fx-padding: 0; -fx-text-fill: #333; -fx-font-size: 14px;" text="contact@greenearth.org" />
+                                    <Label fx:id="emailError" style="-fx-text-fill: #E24560; -fx-font-size: 11px;" text="Invalid Email" visible="false" managed="false"/>
+                                </VBox>
+                            </HBox>
+
+                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                <ImageView fitHeight="18" fitWidth="18" opacity="0.6" preserveRatio="true">
+                                    <Image url="@../../../assets/phoneIcon.png" />
+                                </ImageView>
+                                <VBox HBox.hgrow="ALWAYS">
+                                    <Label style="-fx-text-fill: #777; -fx-font-size: 11px;" text="Phone" />
+                                    <TextField fx:id="phoneField" editable="false" style="-fx-background-color: transparent; -fx-padding: 0; -fx-text-fill: #333; -fx-font-size: 14px;" text="+92 300 1234567" />
+                                    <Label fx:id="phoneError" style="-fx-text-fill: #E24560; -fx-font-size: 11px;" text="Invalid Phone" visible="false" managed="false"/>
+                                </VBox>
+                            </HBox>
+
+                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                <ImageView fitHeight="18" fitWidth="18" opacity="0.6" preserveRatio="true">
+                                    <Image url="@../../../assets/locationIcon.png" />
+                                </ImageView>
+                                <VBox HBox.hgrow="ALWAYS">
+                                    <Label style="-fx-text-fill: #777; -fx-font-size: 11px;" text="Address" />
+                                    <TextField fx:id="addressField" editable="false" style="-fx-background-color: transparent; -fx-padding: 0; -fx-text-fill: #333; -fx-font-size: 14px;" text="123 Green Valley" />
+                                </VBox>
+                            </HBox>
+
+                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                <ImageView fitHeight="18" fitWidth="18" opacity="0.6" preserveRatio="true">
+                                    <Image url="@../../../assets/icons/info_icon.png" />
+                                </ImageView>
+                                <VBox HBox.hgrow="ALWAYS">
+                                    <Label style="-fx-text-fill: #777; -fx-font-size: 11px;" text="Website" />
+                                    <TextField fx:id="websiteField" editable="false" style="-fx-background-color: transparent; -fx-padding: 0; -fx-text-fill: #333; -fx-font-size: 14px;" text="www.greenearth.org" />
+                                    <Label fx:id="websiteError" style="-fx-text-fill: #E24560; -fx-font-size: 11px;" text="Invalid Website" visible="false" managed="false"/>
+                                </VBox>
+                            </HBox>
+                        </VBox>
+
+                        <VBox spacing="15" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                            <Label style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #333;" text="Authorised Representative" />
+
+                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                <ImageView fitHeight="18" fitWidth="18" opacity="0.6" preserveRatio="true">
+                                    <Image url="@../../../assets/user.png" />
+                                </ImageView>
+                                <VBox HBox.hgrow="ALWAYS">
+                                    <Label style="-fx-text-fill: #777; -fx-font-size: 11px;" text="Name" />
+                                    <TextField fx:id="repNameField" editable="false" style="-fx-background-color: transparent; -fx-padding: 0; -fx-text-fill: #333; -fx-font-size: 14px;" text="Dr. Ahmed Khan" />
+                                </VBox>
+                            </HBox>
+
+                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                <ImageView fitHeight="18" fitWidth="18" opacity="0.6" preserveRatio="true">
+                                    <Image url="@../../../assets/id-card.png" />
+                                </ImageView>
+                                <VBox HBox.hgrow="ALWAYS">
+                                    <Label style="-fx-text-fill: #777; -fx-font-size: 11px;" text="CNIC" />
+                                    <TextField fx:id="repCnicField" editable="false" style="-fx-background-color: transparent; -fx-padding: 0; -fx-text-fill: #333; -fx-font-size: 14px;" text="42101-1234567-1" />
+                                    <Label fx:id="cnicError" style="-fx-text-fill: #E24560; -fx-font-size: 11px;" text="Invalid CNIC" visible="false" managed="false"/>
+                                </VBox>
+                            </HBox>
+
+                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                <ImageView fitHeight="18" fitWidth="18" opacity="0.6" preserveRatio="true">
+                                    <Image url="@../../../assets/email.png" />
+                                </ImageView>
+                                <VBox HBox.hgrow="ALWAYS">
+                                    <Label style="-fx-text-fill: #777; -fx-font-size: 11px;" text="Email" />
+                                    <TextField fx:id="repEmailField" editable="false" style="-fx-background-color: transparent; -fx-padding: 0; -fx-text-fill: #333; -fx-font-size: 14px;" />
+                                    <Label fx:id="repEmailError" style="-fx-text-fill: #E24560; -fx-font-size: 11px;" text="Invalid email format" visible="false" managed="false"/>
+                                </VBox>
+                            </HBox>
+
+                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                <ImageView fitHeight="18" fitWidth="18" opacity="0.6" preserveRatio="true">
+                                    <Image url="@../../../assets/phoneIcon.png" />
+                                </ImageView>
+                                <VBox HBox.hgrow="ALWAYS">
+                                    <Label style="-fx-text-fill: #777; -fx-font-size: 11px;" text="Contact Number" />
+                                    <TextField fx:id="repContactField" editable="false" style="-fx-background-color: transparent; -fx-padding: 0; -fx-text-fill: #333; -fx-font-size: 14px;" />
+                                    <Label fx:id="repContactError" style="-fx-text-fill: #E24560; -fx-font-size: 11px;" text="Invalid contact format" visible="false" managed="false"/>
+                                </VBox>
+                            </HBox>
+                        </VBox>
+                        <rowConstraints>
+                            <RowConstraints />
+                        </rowConstraints>
+                    </GridPane>
+                </VBox>
+
+                <!-- RATINGS SECTION -->
+                <VBox maxWidth="1000" spacing="15" style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 30; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 15, 0.1, 0, 3);">
+                    <HBox alignment="CENTER_LEFT" spacing="15">
+                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #274C56;" text="Recent Reviews" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label style="-fx-text-fill: #B45309; -fx-font-size: 14px;" text="Average Rating" />
+                        <HBox alignment="CENTER_LEFT" spacing="8" style="-fx-background-color: #FFFBEB; -fx-padding: 8 12; -fx-background-radius: 8; -fx-border-color: #FEF3C7; -fx-border-radius: 8;">
+                            <Label text="★" style="-fx-text-fill:#FFD54A; -fx-font-size:16px;"/>
+                            <Label fx:id="averageRatingLabel" style="-fx-text-fill: #B45309; -fx-font-size: 16px; -fx-font-weight: bold;" text="0.0" />
+                        </HBox>
+                    </HBox>
+
+                    <FlowPane fx:id="ratingsContainer" hgap="15" vgap="15" alignment="CENTER_LEFT">
+                        <!-- Rating cards will be added dynamically -->
+                    </FlowPane>
+                </VBox>
+
+                <VBox fx:id="documentsContainer" maxWidth="1000" spacing="15" style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 30; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 15, 0.1, 0, 3);">
+                    <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #274C56;" text="Verification Documents" />
+
+                    <HBox alignment="CENTER_LEFT" spacing="15" style="-fx-background-color: #F9FAFB; -fx-padding: 15; -fx-background-radius: 8; -fx-border-color: #f0f0f0; -fx-border-radius: 8;">
+                        <StackPane style="-fx-background-color: #e0f2f1; -fx-padding: 10; -fx-background-radius: 50;">
+                            <ImageView fitHeight="24" fitWidth="24" preserveRatio="true">
+                                <Image url="@../../../assets/applicationsIcon.png" />
+                            </ImageView>
+                        </StackPane>
+                        <VBox HBox.hgrow="ALWAYS">
+                            <Label style="-fx-font-weight: bold; -fx-text-fill: #333;" text="Registration Certificate" />
+                            <Label style="-fx-font-size: 12px; -fx-text-fill: #777;" text="Uploaded" />
+                        </VBox>
+                        <Label style="-fx-text-fill: #00796b; -fx-background-color: #e0f2f1; -fx-padding: 4 8; -fx-background-radius: 4; -fx-font-size: 11px; -fx-font-weight: bold;" text="Verified" />
+                        <Button fx:id="viewRegBtn" onAction="#handleViewReg" style="-fx-background-color: #009689; -fx-text-fill: white; -fx-border-radius: 6; -fx-cursor: hand; -fx-font-size: 12px; -fx-padding: 6 12;" text="View" />
+                    </HBox>
+
+                    <HBox alignment="CENTER_LEFT" spacing="15" style="-fx-background-color: #F9FAFB; -fx-padding: 15; -fx-background-radius: 8; -fx-border-color: #f0f0f0; -fx-border-radius: 8;">
+                        <StackPane style="-fx-background-color: #e0f2f1; -fx-padding: 10; -fx-background-radius: 50;">
+                            <ImageView fitHeight="24" fitWidth="24" preserveRatio="true">
+                                <Image url="@../../../assets/applicationsIcon.png" />
+                            </ImageView>
+                        </StackPane>
+                        <VBox HBox.hgrow="ALWAYS">
+                            <Label style="-fx-font-weight: bold; -fx-text-fill: #333;" text="Tax Document (NTN)" />
+                            <Label style="-fx-font-size: 12px; -fx-text-fill: #777;" text="Uploaded" />
+                        </VBox>
+                        <Label style="-fx-text-fill: #00796b; -fx-background-color: #e0f2f1; -fx-padding: 4 8; -fx-background-radius: 4; -fx-font-size: 11px; -fx-font-weight: bold;" text="Verified" />
+                        <Button fx:id="viewTaxBtn" onAction="#handleViewTax" style="-fx-background-color: #009689; -fx-text-fill: white; -fx-border-radius: 6; -fx-cursor: hand; -fx-font-size: 12px; -fx-padding: 6 12;" text="View" />
+                    </HBox>
+
+                    <HBox alignment="CENTER_LEFT" spacing="15" style="-fx-background-color: #F9FAFB; -fx-padding: 15; -fx-background-radius: 8; -fx-border-color: #f0f0f0; -fx-border-radius: 8;">
+                        <StackPane style="-fx-background-color: #e0f2f1; -fx-padding: 10; -fx-background-radius: 50;">
+                            <ImageView fitHeight="24" fitWidth="24" preserveRatio="true">
+                                <Image url="@../../../assets/id-card.png" />
+                            </ImageView>
+                        </StackPane>
+                        <VBox HBox.hgrow="ALWAYS">
+                            <Label style="-fx-font-weight: bold; -fx-text-fill: #333;" text="CNIC Proof" />
+                            <Label style="-fx-font-size: 12px; -fx-text-fill: #777;" text="Uploaded" />
+                        </VBox>
+                        <Label style="-fx-text-fill: #00796b; -fx-background-color: #e0f2f1; -fx-padding: 4 8; -fx-background-radius: 4; -fx-font-size: 11px; -fx-font-weight: bold;" text="Verified" />
+                        <Button fx:id="viewCnicBtn" onAction="#handleViewCnic" style="-fx-background-color: #009689; -fx-text-fill: white; -fx-border-radius: 6; -fx-cursor: hand; -fx-font-size: 12px; -fx-padding: 6 12;" text="View" />
+                    </HBox>
+                </VBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

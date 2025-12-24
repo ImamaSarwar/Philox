@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      prefWidth="1000" prefHeight="700"
+      style="-fx-background-color: linear-gradient(to bottom right, #f7f9fc, #e6ebf5);">
+
+    <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" style="-fx-background-color: transparent;
+                   -fx-control-inner-background: transparent;
+                   -fx-background: transparent;
+                   -fx-border-color: transparent;">
+        <content>
+            <VBox spacing="20" alignment="TOP_CENTER" style="-fx-padding: 30;" prefWidth="800">
+
+                <!-- PAGE HEADING -->
+                <VBox spacing="8" alignment="TOP_LEFT">
+                    <Label fx:id="headerTitleLabel" text="My Profile"
+                           style="-fx-font-size: 26px; -fx-text-fill: #274C56;" />
+                    <Label fx:id="headerSubtitleLabel" text="Manage your personal information and view your volunteer history."
+                           style="-fx-font-size: 14px; -fx-text-fill: #4A5565;" />
+                </VBox>
+
+                <!-- PROFILE SUMMARY BOX -->
+                <HBox spacing="20" alignment="CENTER_LEFT"
+                      style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 20;
+                                     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.3, 0, 2);">
+
+                    <!-- Initials Circle -->
+                    <StackPane prefWidth="60" prefHeight="60"
+                               style="-fx-background-color: #009689; -fx-background-radius: 30;">
+                        <Label fx:id="initialsLabel" text="SA"
+                               style="-fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;" />
+                    </StackPane>
+
+                    <!-- User Info -->
+                    <VBox spacing="8">
+
+                        <Label fx:id="nameLabel" text="Sarah Arslan"
+                               style="-fx-font-size: 18px; -fx-text-fill: #274C56;" />
+
+                        <!-- FIXED CONTACT ROW: Email + Phone + Location -->
+                        <HBox spacing="15" alignment="CENTER_LEFT">
+
+                            <!-- EMAIL BLOCK (fixed) -->
+                            <HBox spacing="5" alignment="CENTER_LEFT">
+                                <ImageView fx:id="summaryEmailIcon" fitHeight="14" fitWidth="14" />
+                                <Label fx:id="emailLabel"
+                                       text="sarah.miller@email.com"
+                                       style="-fx-text-fill: #4A5565; -fx-font-size: 14px;" />
+                            </HBox>
+
+                            <!-- PHONE BLOCK -->
+                            <HBox spacing="5" alignment="CENTER_LEFT">
+                                <ImageView fx:id="phoneIcon" fitHeight="14" fitWidth="14" />
+                                <Label fx:id="phoneLabel" text="+92 300 1234567"
+                                       style="-fx-text-fill: #4A5565; -fx-font-size: 14px;" />
+                            </HBox>
+
+                            <!-- LOCATION BLOCK -->
+                            <HBox spacing="5" alignment="CENTER_LEFT">
+                                <ImageView fx:id="locationIcon" fitHeight="14" fitWidth="14" />
+                                <Label fx:id="cityLabel" text="Karachi"
+                                       style="-fx-text-fill: #4A5565; -fx-font-size: 14px;" />
+                            </HBox>
+                        </HBox>
+                    </VBox>
+                </HBox>
+                <!-- PILL TAB SWITCHER -->
+                <HBox alignment="CENTER_LEFT">
+                    <StackPane>
+                        <HBox fx:id="pillTabBar" spacing="5" alignment="CENTER_LEFT" prefWidth="380"
+                              style="-fx-background-color: #ECECF0; -fx-background-radius: 30; -fx-padding: 6 8;">
+                            <Button fx:id="personalInfoTab" text="Personal Information" onAction="#handlePersonalInfoClick"
+                                    style="-fx-background-color: transparent; -fx-text-fill: #4A5565;
+                                                   -fx-background-radius: 20; -fx-padding: 6 18;" />
+                            <Button fx:id="portfolioTab" text="Portfolio" onAction="#handlePortfolioClick"
+                                    style="-fx-background-color: transparent; -fx-text-fill: #4A5565;
+                                                   -fx-background-radius: 20; -fx-padding: 6 18;" />
+                            <Button fx:id="achievementsTab" text="Achievements" onAction="#handleAchievementsClick"
+                                    style="-fx-background-color: #FFFFFF; -fx-text-fill: #274C56; -fx-font-weight: bold;
+                                                   -fx-background-radius: 20; -fx-padding: 6 18;" />
+                        </HBox>
+                    </StackPane>
+                </HBox>
+
+                <!-- ACHIEVEMENTS & BADGES BOX -->
+                <VBox spacing="24" alignment="TOP_LEFT"
+                      style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 30 40 30 40;
+                     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 20, 0.3, 0, 4);">
+
+                    <!-- Header -->
+                    <Label text="Achievements &amp; Badges"
+                           style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #274C56;" />
+
+                    <!-- Badge Cards -->
+                    <HBox fx:id="badgesContainer" spacing="28" alignment="CENTER"/>
+
+                    <!-- Tip Box -->
+                    <HBox spacing="12" alignment="CENTER_LEFT"
+                          style="-fx-background-color: #FFE053; -fx-background-radius: 10; -fx-padding: 14 20;">
+                        <ImageView fx:id="tipIcon" fitHeight="23" fitWidth="20" />
+                        <Label text="Tip: Complete more volunteer opportunities to earn badges and achievements!"
+                               wrapText="true"
+                               style="-fx-font-size: 13px; -fx-text-fill: #364153;" />
+                    </HBox>
+
+                <!-- RATINGS SECTION -->
+                  <VBox spacing="18" alignment="TOP_LEFT">
+                      <HBox alignment="CENTER_LEFT" spacing="10">
+                          <HBox alignment="CENTER_LEFT" spacing="8">
+                              <Label text="Your Ratings" style="-fx-font-size:16px; -fx-text-fill:#274C56;"/>
+                          </HBox>
+                          <Region HBox.hgrow="ALWAYS"/>
+                          <HBox alignment="CENTER_RIGHT" spacing="8">
+                              <Label text="Average Rating" style="-fx-text-fill:#4A5565; -fx-font-size:14px;"/>
+                              <HBox alignment="CENTER_LEFT" spacing="8" style="-fx-background-color: #FFFBEB; -fx-padding: 8 12; -fx-background-radius: 8; -fx-border-color: #FEF3C7; -fx-border-radius: 8;">
+                                  <Label text="★" style="-fx-text-fill:#FFD54A; -fx-font-size:16px;"/>
+                                  <Label fx:id="averageRatingLabel" style="-fx-text-fill: #B45309; -fx-font-size: 16px; -fx-font-weight: bold;" text="0.0" />
+                              </HBox>
+                          </HBox>
+                      </HBox>
+
+                      <!-- container filled dynamically by controller; displays up to 3 most recent ratings -->
+                      <FlowPane fx:id="ratingsContainer" hgap="28" vgap="18" prefWrapLength="900" alignment="TOP_LEFT"/>
+                  </VBox>
+                </VBox>
+            </VBox>
+        </content>
+    </ScrollPane>
+</VBox>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.philoxapp.component.sidepanel.SidePanel"
+      spacing="20" alignment="TOP_LEFT"
+      style="-fx-background-color: white; -fx-padding: 30; -fx-pref-width: 250;">
+
+    <VBox spacing="10" style="-fx-padding: 10 0;">
+    </VBox>
+
+    <Region VBox.vgrow="ALWAYS"/>
+
+    <!-- USER INFO & LOGOUT SECTION -->
+    <VBox spacing="10">
+        <Region prefHeight="1" maxWidth="200"
+                style="-fx-background-color: #DEDEDE;" />
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <StackPane prefWidth="36" prefHeight="36"
+                       style="-fx-background-color: #009689; -fx-background-radius: 18;">
+                <Label fx:id="initialsLabel" text="U"
+                       style="-fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold;" />
+            </StackPane>
+            <VBox>
+                <Label fx:id="userNameLabel" text="User Name"
+                       style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #274C56;" />
+                <Label fx:id="roleLabel" text="User" style="-fx-font-size: 12px; -fx-text-fill: #666;" />
+            </VBox>
+        </HBox>
+        <HBox spacing="10" alignment="CENTER_LEFT" onMouseClicked="#handleLogout"
+              style="-fx-background-color: transparent; -fx-padding: 8 0; -fx-cursor: hand;">
+            <ImageView fx:id="logoutIcon" fitHeight="18" fitWidth="18" />
+            <Label text="Logout"
+                   style="-fx-font-size: 13px; -fx-text-fill: #4A5565;" />
+        </HBox>
+    </VBox>
+</VBox>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Circle?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.philoxapp.organisationScreens.PostOpportunityController"
+            prefHeight="900.0" prefWidth="1400.0" style="-fx-background-color: #f7f9fc;">
+
+    <left>
+        <VBox fx:id="sidebarContainer" alignment="TOP_LEFT" prefWidth="250" spacing="15"
+              style="-fx-background-color: #FFFFFF; -fx-border-width: 0 1 0 0; -fx-border-color: #e0e0e0;">
+        </VBox>
+    </left>
+
+    <center>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" style="-fx-background-color: transparent; -fx-border-color: transparent;">
+            <HBox alignment="TOP_CENTER" spacing="30">
+                <padding>
+                    <Insets top="30" right="30" bottom="30" left="30"/>
+                </padding>
+
+                <VBox maxWidth="800" HBox.hgrow="ALWAYS" spacing="25">
+                    <VBox.margin>
+                        <Insets left="20" />
+                    </VBox.margin>
+                    <VBox spacing="5">
+                        <Label text="Post New Opportunity" style="-fx-font-size: 26px; -fx-text-fill: #274C56;"/>
+                        <Label text="Create a volunteer opportunity for your organisation." style="-fx-font-size: 14px; -fx-text-fill: #555;"/>
+                    </VBox>
+
+                    <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-background-color: #e6f7ff; -fx-border-color: #b3e0ff; -fx-border-width: 1; -fx-background-radius: 8; -fx-border-radius: 8; -fx-padding: 12;">
+                        <ImageView fitHeight="18.0" fitWidth="18.0" preserveRatio="true">
+                            <Image url="@../../../assets/icons/info_icon.png" />
+                        </ImageView>
+                        <Label text="All opportunities require admin approval before being visible to volunteers." style="-fx-font-size: 13px; -fx-text-fill: #0056b3;"/>
+                    </HBox>
+
+                    <VBox spacing="30" style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 30 40 40 40; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 15, 0.2, 0, 4);">
+
+                        <VBox spacing="15">
+                            <Label text="Basic Information" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #274C56;"/>
+                            <VBox spacing="5">
+                                <Label text="Title *" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+                                <TextField fx:id="titleField" promptText="e.g. Community Clean-up Drive" style="-fx-background-color: #f4f7f6; -fx-border-color: #ddd; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-size: 14px; -fx-padding: 10 12;"/>
+                                <Label fx:id="titleError" style="-fx-font-size: 12px; -fx-text-fill: #D32F2F; -fx-padding: 3 0 0 0;" managed="false" visible="false"/>
+                            </VBox>
+                            <VBox spacing="5">
+                                <Label text="Category *" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+                                <ComboBox fx:id="categoryComboBox" promptText="Select type" maxWidth="Infinity" style="-fx-background-color: #f4f7f6; -fx-border-color: #ddd; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-size: 14px; -fx-padding: 4 8;"/>
+                                <Label fx:id="categoryError" style="-fx-font-size: 12px; -fx-text-fill: #D32F2F; -fx-padding: 3 0 0 0;" managed="false" visible="false"/>
+                            </VBox>
+                            <VBox spacing="5">
+                                <Label text="Description *" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+                                <TextArea fx:id="descriptionArea" promptText="Describe the opportunity, responsibilities, and requirements..." wrapText="true" prefHeight="120" style="-fx-background-color: #f4f7f6; -fx-border-color: #ddd; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-size: 14px; -fx-padding: 10 12;"/>
+                                <Label text="Be specific about what volunteers will do and what skills are needed." style="-fx-font-size: 12px; -fx-text-fill: #777;"/>
+                                <Label fx:id="descriptionError" style="-fx-font-size: 12px; -fx-text-fill: #D32F2F; -fx-padding: 3 0 0 0;" managed="false" visible="false"/>
+                            </VBox>
+                        </VBox>
+
+                        <Separator />
+
+                        <VBox spacing="15">
+                            <Label text="Location &amp; Schedule" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #274C56;"/>
+                            <VBox spacing="5">
+                                <Label text="Location *" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+                                <TextField fx:id="locationField" promptText="City, area, or specific address" style="-fx-background-color: #f4f7f6; -fx-border-color: #ddd; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-size: 14px; -fx-padding: 10 12;"/>
+                                <Label fx:id="locationError" style="-fx-font-size: 12px; -fx-text-fill: #D32F2F; -fx-padding: 3 0 0 0;" managed="false" visible="false"/>
+                            </VBox>
+                            <HBox spacing="20">
+                                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                    <Label text="Start Date *" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+                                    <DatePicker fx:id="startDatePicker" promptText="mm/dd/yyyy" maxWidth="Infinity" style="-fx-background-color: #f4f7f6; -fx-border-color: #ddd; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-size: 14px; -fx-padding: 4 8;"/>
+                                    <Label fx:id="startDateError" style="-fx-font-size: 12px; -fx-text-fill: #D32F2F; -fx-padding: 3 0 0 0;" managed="false" visible="false"/>
+                                </VBox>
+                                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                    <Label text="End Date *" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+                                    <DatePicker fx:id="endDatePicker" promptText="mm/dd/yyyy" maxWidth="Infinity" style="-fx-background-color: #f4f7f6; -fx-border-color: #ddd; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-size: 14px; -fx-padding: 4 8;"/>
+                                    <Label fx:id="endDateError" style="-fx-font-size: 12px; -fx-text-fill: #D32F2F; -fx-padding: 3 0 0 0;" managed="false" visible="false"/>
+                                </VBox>
+                            </HBox>
+                            <HBox spacing="20">
+                                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                    <Label text="Start Time *" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+                                    <TextField fx:id="startTimeField" promptText="e.g. 09:00 AM" style="-fx-background-color: #f4f7f6; -fx-border-color: #ddd; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-size: 14px; -fx-padding: 10 12;"/>
+                                    <Label fx:id="startTimeError" style="-fx-font-size: 12px; -fx-text-fill: #D32F2F; -fx-padding: 3 0 0 0;" managed="false" visible="false"/>
+                                </VBox>
+                                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                    <Label text="Duration *" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+                                    <TextField fx:id="durationField" promptText="e.g. 3 (in hours)" style="-fx-background-color: #f4f7f6; -fx-border-color: #ddd; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-size: 14px; -fx-padding: 10 12;"/>
+                                    <Label fx:id="durationError" style="-fx-font-size: 12px; -fx-text-fill: #D32F2F; -fx-padding: 3 0 0 0;" managed="false" visible="false"/>
+                                </VBox>
+                            </HBox>
+                            <HBox spacing="20">
+                                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                    <Label text="Application Closing Date *" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+                                    <DatePicker fx:id="closingDatePicker" promptText="mm/dd/yyyy" maxWidth="Infinity" style="-fx-background-color: #f4f7f6; -fx-border-color: #ddd; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-size: 14px; -fx-padding: 4 8;"/>
+                                    <Label fx:id="closingDateError" style="-fx-font-size: 12px; -fx-text-fill: #D32F2F; -fx-padding: 3 0 0 0;" managed="false" visible="false"/>
+                                </VBox>
+                                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                    <Label text="Volunteer Capacity *" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+                                    <TextField fx:id="capacityField" promptText="Number of volunteers needed" style="-fx-background-color: #f4f7f6; -fx-border-color: #ddd; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-size: 14px; -fx-padding: 10 12;"/>
+                                    <Label fx:id="capacityError" style="-fx-font-size: 12px; -fx-text-fill: #D32F2F; -fx-padding: 3 0 0 0;" managed="false" visible="false"/>
+                                </VBox>
+                            </HBox>
+                        </VBox>
+
+                        <Separator />
+
+                        <HBox spacing="15" alignment="CENTER_LEFT">
+                            <Button fx:id="submitButton" text="Submit for Approval" onAction="#handleSubmitForApproval"
+                                    style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14px; -fx-padding: 12 25; -fx-cursor: hand;"/>
+                            <Button fx:id="saveDraftButton" text="Save Draft" onAction="#handleSaveDraft"
+                                    style="-fx-background-color: transparent; -fx-text-fill: #555; -fx-border-color: #ccc; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14px; -fx-padding: 11 25; -fx-cursor: hand;"/>
+                        </HBox>
+                    </VBox>
+                </VBox>
+
+                <VBox maxWidth="350" minWidth="300" spacing="15">
+                    <VBox.margin>
+                        <Insets right="20" />
+                    </VBox.margin>
+
+                    <VBox spacing="15" style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 15, 0.2, 0, 4);">
+
+                        <Label text="Preview" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+                        <Label text="How volunteers will see this opportunity" style="-fx-font-size: 13px; -fx-text-fill: #777; -fx-padding: 0 0 10 0;"/>
+
+                        <Label fx:id="previewTitle" text="Opportunity Title" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #274C56;" wrapText="true"/>
+                        <Label fx:id="previewCategory" text="Category" style="-fx-background-color: #e0f2f1; -fx-text-fill: #00796b; -fx-font-size: 12px; -fx-font-weight: bold; -fx-padding: 4 10; -fx-background-radius: 6;" managed="false" visible="false"/>
+
+                        <VBox spacing="10" style="-fx-padding: 10 0 0 0;">
+                            <HBox fx:id="previewLocationBox" spacing="10" alignment="CENTER_LEFT" managed="false" visible="false">
+                                <ImageView fitHeight="16.0" fitWidth="16.0" preserveRatio="true">
+                                    <Image url="@../../../assets/icons/location_icon.png" />
+                                </ImageView>
+                                <Label fx:id="previewLocation" style="-fx-font-size: 13px; -fx-text-fill: #555;" wrapText="true"/>
+                            </HBox>
+                            <HBox fx:id="previewDateBox" spacing="10" alignment="CENTER_LEFT" managed="false" visible="false">
+                                <ImageView fitHeight="16.0" fitWidth="16.0" preserveRatio="true">
+                                    <Image url="@../../../assets/icons/date_icon.png" />
+                                </ImageView>
+                                <Label fx:id="previewDate" style="-fx-font-size: 13px; -fx-text-fill: #555;" wrapText="true"/>
+                            </HBox>
+                            <HBox fx:id="previewCapacityBox" spacing="10" alignment="CENTER_LEFT" managed="false" visible="false">
+                                <ImageView fitHeight="16.0" fitWidth="16.0" preserveRatio="true">
+                                    <Image url="@../../../assets/icons/users_icon.png" />
+                                </ImageView>
+                                <Label fx:id="previewCapacity" style="-fx-font-size: 13px; -fx-text-fill: #555;" wrapText="true"/>
+                            </HBox>
+                        </VBox>
+
+                        <Label fx:id="previewDescription" text="Description of the opportunity, responsibilities, and requirements will appear here..."
+                               style="-fx-font-size: 13px; -fx-text-fill: #777;" wrapText="true" managed="false" visible="false"/>
+
+                        <Button text="Apply Now" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14px; -fx-padding: 12 25; -fx-cursor: hand;" maxWidth="Infinity" disable="true"/>
+                    </VBox>
+                </VBox>
+            </HBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

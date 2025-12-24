@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.philoxapp.adminScreens.AdminBadgesController"
+            prefWidth="1000" prefHeight="700"
+            style="-fx-background-color: linear-gradient(to bottom right, #f7f9fc, #e6ebf5);">
+
+    <!-- SIDEBAR -->
+    <left>
+        <VBox fx:id="sidebarContainer" alignment="TOP_LEFT" prefWidth="250" spacing="15"
+              style="-fx-background-color: #FFFFFF; -fx-border-width: 0 1 0 0; -fx-border-color: #e0e0e0;">
+            <!-- SidePanel will be added here dynamically -->
+        </VBox>
+    </left>
+
+    <center>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" style="-fx-padding:6 0 0 0; -fx-background-color: transparent;
+                   -fx-control-inner-background: transparent;
+                   -fx-background: transparent;
+                   -fx-border-color: transparent;">
+            <content>
+                <VBox spacing="18" alignment="TOP_LEFT" style="-fx-padding:28 32 32 32;">
+                    <!-- Header row -->
+                    <HBox alignment="CENTER_LEFT" spacing="12">
+                        <VBox spacing="6" alignment="CENTER_LEFT">
+                            <Label text="Badges Management"
+                                   style="-fx-text-fill:#274C56; -fx-font-size:22px; -fx-font-weight:600;"/>
+                            <Label text="Create, review, and update volunteer achievement badges."
+                                   style="-fx-text-fill:#45556C; -fx-font-size:13px;"/>
+                        </VBox>
+
+                        <Region HBox.hgrow="ALWAYS"/>
+
+                        <Button text="➕  Create Badge" onAction="#onCreateBadgeClicked"
+                                style="-fx-background-color:#009689; -fx-text-fill:white; -fx-background-radius:999; -fx-padding:8 14; -fx-font-size:13px; -fx-font-weight:600; -fx-effect: dropshadow(gaussian, rgba(16,24,32,0.18), 10, 0.0, 0, 3);"
+                                focusTraversable="false" />
+                    </HBox>
+
+                    <!-- Custom search bar -->
+                    <HBox alignment="CENTER_LEFT" spacing="10"
+                          style="-fx-background-color: white; -fx-border-color:#E6EEF2; -fx-border-radius:999; -fx-background-radius:999; -fx-padding:10 14; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.03), 6, 0.5, 0, 2); -fx-min-height:44;">
+                        <Label text="🔍" style="-fx-font-size:16px; -fx-text-fill:#90A1B9;"/>
+                        <TextField fx:id="searchField" promptText="Search badges..."
+                                   style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-prompt-text-fill: #90A1B9; -fx-focus-color: transparent; -fx-faint-focus-color: transparent; -fx-font-size:14px;"
+                                   HBox.hgrow="ALWAYS"/>
+                    </HBox>
+
+                    <!-- Grid for dynamic cards (3 columns) -->
+                    <GridPane fx:id="badgesGrid" hgap="24" vgap="24">
+                        <padding>
+                            <Insets top="16" right="16" bottom="16" left="16"/>
+                        </padding>
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="33.33" halignment="CENTER"/>
+                            <ColumnConstraints percentWidth="33.33" halignment="CENTER"/>
+                            <ColumnConstraints percentWidth="33.33" halignment="CENTER"/>
+                        </columnConstraints>
+                    </GridPane>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+</BorderPane>

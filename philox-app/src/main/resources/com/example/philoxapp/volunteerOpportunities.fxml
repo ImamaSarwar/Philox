@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.philoxapp.volunteerScreens.VolunteerOpportunitiesController" focusTraversable="false">
+
+    <!-- SIDEBAR -->
+    <left>
+        <VBox fx:id="sidebarContainer" alignment="TOP_LEFT" prefWidth="250" spacing="15"
+              style="-fx-background-color: #FFFFFF; -fx-border-width: 0 1 0 0; -fx-border-color: #e0e0e0;">
+            <!-- SidePanel will be added here dynamically -->
+        </VBox>
+    </left>
+
+    <center>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED">
+            <content>
+                <VBox spacing="18" focusTraversable="false">
+                    <padding>
+                        <Insets top="24" right="24" bottom="24" left="24"/>
+                    </padding>
+
+                    <VBox spacing="8">
+                        <Label text="Find Volunteer Opportunities" style="-fx-font-size: 24px; -fx-font-weight: 600;"/>
+                        <Label text="Discover opportunities that match your interests and skills."
+                               style="-fx-text-fill: #6b7280; -fx-font-size: 13px;"/>
+                        <TextField fx:id="searchField" promptText="Search by title or organisation name..."
+                                   prefHeight="44"
+                                   style="-fx-background-color: white; -fx-border-color: #e6e9eb; -fx-border-width: 1; -fx-border-radius: 12; -fx-background-radius: 12; -fx-padding: 10 14; -fx-font-size: 14px;"/>
+                    </VBox>
+
+                    <HBox spacing="12" alignment="CENTER_LEFT">
+                        <Button graphicTextGap="8" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-padding: 6 10; -fx-background-radius: 8;">
+                            <graphic>
+                                <ImageView fx:id="selectorlocationIcon" fitWidth="18" fitHeight="18" preserveRatio="true"/>
+                            </graphic>
+                        </Button>
+
+                        <ComboBox fx:id="locationComboBox" prefWidth="200" promptText="All Locations"
+                                  style="-fx-background-color: #f4f6f6; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 6 10; -fx-font-size: 13px;"/>
+                    </HBox>
+
+                    <VBox focusTraversable="false">
+                        <TilePane fx:id="cardsTilePane" prefColumns="3" hgap="15" vgap="15" focusTraversable="false">
+                            <padding>
+                                <Insets top="12" right="12" bottom="12" left="12"/>
+                            </padding>
+
+                           <!-- dynanicamlly filled-->
+
+                        </TilePane>
+                    </VBox>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+</BorderPane>

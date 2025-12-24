@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.philoxapp.volunteerScreens.VolunteerProfileController"
+            prefWidth="1000" prefHeight="700"
+            style="-fx-background-color: linear-gradient(to bottom right, #f7f9fc, #e6ebf5);">
+
+    <!-- SIDEBAR -->
+    <left>
+        <VBox fx:id="sidebarContainer" alignment="TOP_LEFT" prefWidth="250" spacing="15"
+              style="-fx-background-color: #FFFFFF; -fx-border-width: 0 1 0 0; -fx-border-color: #e0e0e0;">
+            <!-- SidePanel will be added here dynamically -->
+        </VBox>
+    </left>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <center>
+        <StackPane fx:id="contentContainer" style="-fx-background-color: transparent;">
+            <!-- Tab content will be loaded here dynamically -->
+        </StackPane>
+    </center>
+</BorderPane>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Circle?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.philoxapp.organisationScreens.ManageOpportunitiesController"
+            prefHeight="900.0" prefWidth="1400.0" style="-fx-background-color: #f7f9fc;">
+
+    <left>
+        <VBox fx:id="sidebarContainer" alignment="TOP_LEFT" prefWidth="250" spacing="15"
+              style="-fx-background-color: #FFFFFF; -fx-border-width: 0 1 0 0; -fx-border-color: #e0e0e0;">
+            <!-- ... -->
+        </VBox>
+    </left>
+
+
+    <center>
+        <VBox spacing="20" style="-fx-background-color: transparent;">
+            <padding>
+                <Insets top="30" right="50" bottom="30" left="50"/>
+            </padding>
+
+            <VBox spacing="5">
+                <Label text="Manage Opportunities" style="-fx-font-size: 26px; -fx-text-fill: #274C56;"/>
+                <Label text="View and manage all your volunteer opportunities." style="-fx-font-size: 14px; -fx-text-fill: #555;"/>
+            </VBox>
+
+            <VBox spacing="20" style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 30 30 30 30; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 15, 0.2, 0, 4);" VBox.vgrow="ALWAYS">
+
+                <HBox spacing="15" alignment="CENTER_LEFT">
+                    <TextField fx:id="searchField" promptText="Search opportunities..."
+                               style="-fx-background-color: #f4f7f6; -fx-border-color: #ddd; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-size: 14px; -fx-padding: 10 12;"
+                               HBox.hgrow="ALWAYS" maxWidth="500"/>
+                    <Region HBox.hgrow="ALWAYS" />
+                    <ComboBox fx:id="statusFilter" promptText="All Status"
+                              style="-fx-background-color: #f4f7f6; -fx-border-color: #ddd; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-size: 14px; -fx-padding: 4 8;"
+                              prefWidth="150"/>
+                </HBox>
+
+                <TableView fx:id="opportunitiesTable" VBox.vgrow="ALWAYS"
+                           style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 8; -fx-background-radius: 8; -fx-alignment: CENTER-LEFT;">
+                    <columns>
+                        <TableColumn fx:id="titleCol" text="Title" prefWidth="220" />
+                        <TableColumn fx:id="typeCol" text="Type" prefWidth="120" />
+                        <TableColumn fx:id="statusCol" text="Status" prefWidth="100" />
+                        <TableColumn fx:id="applicantsCol" text="Applicants" prefWidth="100" />
+                        <TableColumn fx:id="datePostedCol" text="Date Posted" prefWidth="120" />
+                        <TableColumn fx:id="viewApplicationsCol" text="View Applications" prefWidth="220" />
+                        <TableColumn fx:id="actionsCol" text="Actions" prefWidth="100" />
+                    </columns>
+                </TableView>
+
+                <HBox alignment="CENTER_LEFT">
+                    <Label fx:id="footerLabel" text="Showing 0 of 0 opportunities" style="-fx-font-size: 13px; -fx-text-fill: #777;"/>
+                </HBox>
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>

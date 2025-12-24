@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.philoxapp.TestApplicationController">
+    <center>
+        <VBox spacing="10">
+            <TableView fx:id="opportunityTable" prefHeight="200">
+                <columns>
+                    <TableColumn fx:id="titleColumn" text="Title" prefWidth="150"/>
+                    <TableColumn fx:id="categoryColumn" text="Category" prefWidth="100"/>
+                </columns>
+            </TableView>
+            <Label text="Comment:"/>
+            <TextArea fx:id="commentArea" promptText="Enter your application comment here..." prefRowCount="3"/>
+            <Button fx:id="applyButton" text="Apply"/>
+        </VBox>
+    </center>
+</BorderPane>

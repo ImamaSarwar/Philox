@@ -1,0 +1,139 @@
+CREATE TABLE IF NOT EXISTS USERS(
+    userId INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    email TEXT NOT NULL UNIQUE,
+    password TEXT NOT NULL,
+    status INTEGER DEFAULT 0,
+    type INTEGER NOT NULL,
+    registrationDate TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS ADMIN(
+    adminId INTEGER PRIMARY KEY,
+    role TEXT,
+    FOREIGN KEY(adminId) REFERENCES USERS(userId) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS VOLUNTEER(
+    volunteerId INTEGER PRIMARY KEY,
+    phone TEXT,
+    cnic TEXT UNIQUE NOT NULL,
+    age INTEGER,
+    city TEXT,
+    skills TEXT,
+    bio TEXT,
+    availability INTEGER DEFAULT 1,
+    rating REAL DEFAULT 0.0,
+    FOREIGN KEY(volunteerId) REFERENCES USERS(userId) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS ORGANISATION(
+    organisationId INTEGER PRIMARY KEY,
+    repName TEXT,
+    repCnic TEXT NOT NULL,
+    repEmail TEXT,
+    repContactNumber TEXT,
+    contactNumber TEXT,
+    mission TEXT,
+    address TEXT,
+    website TEXT,
+    rating REAL DEFAULT 0.0,
+    FOREIGN KEY(organisationId) REFERENCES USERS(userId) ON DELETE CASCADE
+);
+
+
+CREATE TABLE IF NOT EXISTS ORGANISATION_LICENSE(
+    organisationId INTEGER PRIMARY KEY,
+    registrationAuthority TEXT,
+    registrationNumber TEXT UNIQUE NOT NULL,
+    issueDate TEXT,
+    ntn TEXT UNIQUE,
+    registrationProofPath TEXT UNIQUE,
+    taxDocumentPath TEXT UNIQUE,
+    cnicProofPath TEXT UNIQUE,
+    FOREIGN KEY(organisationId) REFERENCES USERS(userId) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS ORGANISATION_SOCIAL_MEDIA(
+    organisationId INTEGER PRIMARY KEY,
+    instagramLink TEXT UNIQUE,
+    facebookLink TEXT UNIQUE,
+    linkedInLink TEXT UNIQUE,
+    FOREIGN KEY(organisationId) REFERENCES USERS(userId) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS OPPORTUNITY(
+    opportunityId INTEGER PRIMARY KEY AUTOINCREMENT,
+    organisationId INTEGER,
+    title TEXT NOT NULL,
+    category TEXT,
+    description TEXT,
+    location TEXT,
+    startDate TEXT,
+    endDate TEXT,
+    closeDate TEXT,
+    startTime TEXT,
+    duration INTEGER,
+    capacity INTEGER,
+    status INTEGER DEFAULT 1,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY(organisationId) REFERENCES USERS(userId) ON DELETE CASCADE,
+    FOREIGN KEY(category) REFERENCES OPPORTUNITY_CATEGORY(categoryId) ON DELETE SET NULL
+);
+
+CREATE TABLE IF NOT EXISTS OPPORTUNITY_CATEGORY(
+    categoryId INTEGER PRIMARY KEY AUTOINCREMENT,
+    categoryName TEXT UNIQUE NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS APPLICATION(
+    applicationId INTEGER PRIMARY KEY AUTOINCREMENT,
+    applicationComment TEXT,
+    opportunityId INTEGER,
+    volunteerId INTEGER,
+    status INTEGER DEFAULT 0,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY(opportunityId) REFERENCES OPPORTUNITY(opportunityId) ON DELETE CASCADE,
+    FOREIGN KEY(volunteerId) REFERENCES USERS(userId) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS RATING(
+    ratingId INTEGER PRIMARY KEY AUTOINCREMENT,
+    raterId INTEGER NOT NULL,
+    rateeId INTEGER NOT NULL,
+    ratingStars INTEGER NOT NULL CHECK(ratingStars >= 1 AND ratingStars <= 5),
+    comment TEXT,
+    createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY(raterId) REFERENCES USERS(userId) ON DELETE CASCADE,
+    FOREIGN KEY(rateeId) REFERENCES USERS(userId) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS BADGE(
+    badgeId INTEGER PRIMARY KEY AUTOINCREMENT,
+    badgeName TEXT UNIQUE NOT NULL,
+    badgeCriteria INTEGER NOT NULL,
+    description TEXT,
+    iconPath TEXT,
+    participationCount INTEGER,
+    applicationCount INTEGER,
+    ratingThreshold REAL
+);
+
+CREATE TABLE IF NOT EXISTS VOLUNTEER_BADGE(
+    volunteerId INTEGER,
+    badgeId INTEGER,
+    awardedAt TEXT DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(volunteerId, badgeId),
+    FOREIGN KEY(volunteerId) REFERENCES USERS(userId) ON DELETE CASCADE,
+    FOREIGN KEY(badgeId) REFERENCES BADGE(badgeId) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS NOTIFICATIONS(
+    notificationId INTEGER PRIMARY KEY AUTOINCREMENT,
+    userId INTEGER,
+    message TEXT NOT NULL,
+    isRead INTEGER DEFAULT 0,
+    timestamp TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY(userId) REFERENCES USERS(userId) ON DELETE CASCADE
+);
