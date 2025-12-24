@@ -71,7 +71,6 @@ git clone https://github.com/ImamaSarwar/Philox.git
 4. Run the main application class
 
 ## Acknowledgements
-- Project Partners: [Menahil Ahmad] (https://github.com/mena-aq) [Hamza Cheema] (https://github.com/Cheemaboi)
+- Project Partners: [Menahil Ahmad](https://github.com/mena-aq) & [Hamza Cheema](https://github.com/Cheemaboi)
 - Built as part of an academic Software Design and Analysis project
 
-### Enjoy!
