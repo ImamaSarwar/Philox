@@ -1,4 +1,4 @@
-# Philox – Centralized Volunteering Platform
+# Philox - A Community Service/Volunteering Hub
 
 Philox is a centralized volunteering platform developed using **JavaFX** that connects Pakistani citizens with verified social welfare organizations.  
 The system streamlines the discovery, management, and tracking of volunteer opportunities through a transparent and user-friendly digital platform.
@@ -54,11 +54,6 @@ The system streamlines the discovery, management, and tracking of volunteer oppo
 - Designed application interfaces and layouts using pure JavaFX
 - Contributed to front-end development and visual consistency
 - Coordinated team workflow and design direction
-- Helped overcome technical limitations of JavaFX through iterative design
-
-## Problem Statement
-In Pakistan, volunteering opportunities are often scattered across informal networks, making it difficult for citizens—especially youth—to find verified and suitable opportunities.  
-Philox addresses this gap by providing a centralized, credible, and structured platform that strengthens civic engagement and promotes national social development.
 
 ## Getting Started
 
@@ -76,7 +71,7 @@ git clone https://github.com/ImamaSarwar/Philox.git
 4. Run the main application class
 
 ## Acknowledgements
-- Project Partners: 
-- Built as part of an academic software design and analysis project
+- Project Partners: [Menahil Ahmad] (https://github.com/mena-aq) [Hamza Cheema] (https://github.com/Cheemaboi)
+- Built as part of an academic Software Design and Analysis project
 
 ### Enjoy!
